@@ -3,6 +3,7 @@ package com.example.MovieApp;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 @Getter
@@ -21,6 +22,7 @@ public class Theatre {
     String theatreName;
     @Column(name = "address_id")
     int addressId;
-
+    @OneToMany(mappedBy = "theatre", fetch = FetchType.LAZY, orphanRemoval = false)
+    private List<Show> listOfShow = new ArrayList<>();
 
 }

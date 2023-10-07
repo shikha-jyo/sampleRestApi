@@ -14,9 +14,9 @@ public class ShowDto {
 
     Long theatreId;
 
-    Long startTime;
+    Long showTime;
 
-    Long endTime;
+    Boolean isActive;
 
     String theatreName;
 }

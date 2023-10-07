@@ -49,13 +49,13 @@ public class MovieAppApplication implements CommandLineRunner {
 	theatreRepository.save(theatre2);
 
 
-	Show show = Show.builder().movieId(movie1.getMovieId()).startTime(Calendar.getInstance().getTime().getTime())
+	Show show = Show.builder().movieId(movie1.getMovieId()).showTime(Calendar.getInstance().getTime().getTime())
 
-			.endTime(Calendar.getInstance().getTime().getTime()).theatreId(theatre.getTheatreId()).
+			.theatreId(theatre.getTheatreId()).isActive(true).
 			build();
-	Show show2 = Show.builder().movieId(movie1.getMovieId()).startTime(Calendar.getInstance().getTime().getTime())
+	Show show2 = Show.builder().movieId(movie1.getMovieId()).showTime(Calendar.getInstance().getTime().getTime())
 
-			.endTime(Calendar.getInstance().getTime().getTime()).theatreId(theatre2.getTheatreId()).
+			.theatreId(theatre2.getTheatreId()).isActive(false).
 			build();
 	showRepository.save(show);
 	showRepository.save(show2);

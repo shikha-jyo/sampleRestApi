@@ -3,7 +3,9 @@ package com.example.MovieApp;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -27,5 +29,8 @@ public class Movie {
     String genre;
     @Column(name = "release_date")
     Date releaseDate;
+
+    @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, orphanRemoval = false)
+    private List<Show> listOfShow = new ArrayList<>();
 
 }

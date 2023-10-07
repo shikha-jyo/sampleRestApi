@@ -21,10 +21,17 @@ public class Show {
     Long movieId;
     @Column(name = "theatre_id")
     Long theatreId;
-    @Column(name = "start_time")
-    Long startTime;
-    @Column(name = "end_time")
-    Long endTime;
+    @Column(name = "show_time")
+    Long showTime;
+    @Column(name = "active")
+    Boolean isActive;
 
-    String theatreName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie.movie_id")
+    private Movie movie;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "theatre.theatre_id")
+    private Theatre theatre;
+
 }
