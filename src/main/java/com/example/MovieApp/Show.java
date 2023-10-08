@@ -2,7 +2,7 @@ package com.example.MovieApp;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.util.Date;
 import java.sql.Timestamp;
 
 @Getter
@@ -21,6 +21,8 @@ public class Show {
     Long movieId;
     @Column(name = "theatre_id")
     Long theatreId;
+    @Column(name="show_date")
+    Date showDate;
     @Column(name = "show_time")
     Long showTime;
     @Column(name = "active")

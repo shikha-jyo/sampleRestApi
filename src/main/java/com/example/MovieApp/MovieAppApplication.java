@@ -5,6 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,7 +31,7 @@ public class MovieAppApplication implements CommandLineRunner {
 
 
 	Movie movie1 = Movie.builder()
-			.movieName("JAWAN")
+			.movieName("Fukrey")
 			.duration("2h39min")
 			.genre("Action")
 			.releaseDate(Calendar.getInstance().getTime())
@@ -40,26 +42,31 @@ public class MovieAppApplication implements CommandLineRunner {
 	movieList.put(movie1, showList);
 
 	movieRepository.save(movie1);
-	Theatre theatre = Theatre.builder().theatreName("PVR").addressId(1234).build();
+	Theatre theatre = Theatre.builder().theatreName("Forum").addressId(1234).build();
 
 	theatreRepository.save(theatre);
 
-	Theatre theatre2 = Theatre.builder().theatreName("INOx").addressId(1234).build();
+	Theatre theatre2 = Theatre.builder().theatreName("Cinepolis").addressId(1234).build();
 
 	theatreRepository.save(theatre2);
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	Date date = dateFormat.parse("2023-10-07");
 
 
 	Show show = Show.builder().movieId(movie1.getMovieId()).showTime(Calendar.getInstance().getTime().getTime())
 
-			.theatreId(theatre.getTheatreId()).isActive(true).
+			.theatreId(theatre.getTheatreId()).showDate(date).isActive(true).
 			build();
 	Show show2 = Show.builder().movieId(movie1.getMovieId()).showTime(Calendar.getInstance().getTime().getTime())
-
-			.theatreId(theatre2.getTheatreId()).isActive(false).
+			.theatreId(theatre2.getTheatreId()).showDate(date).isActive(false).
 			build();
+try {
 	showRepository.save(show);
 	showRepository.save(show2);
-	List<ShowDto> map = showRepository.queryByMovieId(movie1.getMovieId());
+}catch(Exception e){
+	e.printStackTrace();
+}
+	List<ShowDto> map = showRepository.queryByMovieId(movie1.getMovieId(),date);
 	Map<String,List<ShowDto>> result = map.stream().collect(Collectors.groupingBy(s -> s.getTheatreName()));
 	result.entrySet().stream().forEach(e ->System.out.println(e.getKey() + ":" + e.getValue().toString()));
 }
