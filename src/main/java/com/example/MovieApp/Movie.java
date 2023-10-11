@@ -18,17 +18,17 @@ public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "movie_id")
-    Long movieId;
+    private Long movieId;
     @Column(name = "movie_name")
-    String movieName;
+    private String movieName;
     @Column(name = "language")
-    String language;
+    private String language;
     @Column(name = "duration")
-    String duration;
+    private String duration;
     @Column(name = "genre")
-    String genre;
+    private String genre;
     @Column(name = "release_date")
-    Date releaseDate;
+    private Date releaseDate;
 
     @OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, orphanRemoval = false)
     private List<Show> listOfShow = new ArrayList<>();

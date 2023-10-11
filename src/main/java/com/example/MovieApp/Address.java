@@ -14,9 +14,9 @@ import lombok.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int addressId;
-    String street;
-    String city;
-    int pinCode;
+    private int addressId;
+    private String street;
+    private String city;
+    private int pinCode;
 
 }

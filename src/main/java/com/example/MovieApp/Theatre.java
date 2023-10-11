@@ -17,11 +17,11 @@ public class Theatre {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name = "theatre_id")
-    Long theatreId;
+    private Long theatreId;
     @Column(name = "theatre_name")
-    String theatreName;
+    private String theatreName;
     @Column(name = "address_id")
-    int addressId;
+    private int addressId;
     @OneToMany(mappedBy = "theatre", fetch = FetchType.LAZY, orphanRemoval = false)
     private List<Show> listOfShow = new ArrayList<>();
 

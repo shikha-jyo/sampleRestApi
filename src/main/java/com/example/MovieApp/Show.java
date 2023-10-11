@@ -16,17 +16,17 @@ public class Show {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "show_id")
-    Long showId;
+    private Long showId;
     @Column(name = "movie_id")
-    Long movieId;
+    private Long movieId;
     @Column(name = "theatre_id")
-    Long theatreId;
+    private Long theatreId;
     @Column(name="show_date")
-    Date showDate;
+    private Date showDate;
     @Column(name = "show_time")
-    Long showTime;
+    private Long showTime;
     @Column(name = "active")
-    Boolean isActive;
+    private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie.movie_id")

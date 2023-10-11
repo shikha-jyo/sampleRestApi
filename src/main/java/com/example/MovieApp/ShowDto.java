@@ -10,17 +10,17 @@ import java.util.Date;
 @Getter
 public class ShowDto {
 
-    Long showId;
+    private Long showId;
 
-    Long movieId;
+    private Long movieId;
 
-    Long theatreId;
+    private Long theatreId;
 
-    Date showDate;
+    private Date showDate;
 
-    Long showTime;
+    private Long showTime;
 
-    Boolean isActive;
+    private Boolean isActive;
 
-    String theatreName;
+    private String theatreName;
 }
