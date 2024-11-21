@@ -1,11 +1,7 @@
-package com.example.MovieApp;
+package com.example.MovieApp.repository.primary;
 
+import com.example.MovieApp.model.primary.Theatre;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-
-import java.util.List;
-import java.util.Map;
 
 public interface TheatreRepository  extends JpaRepository<Theatre,Long> {
 

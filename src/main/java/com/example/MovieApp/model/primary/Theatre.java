@@ -1,11 +1,11 @@
-package com.example.MovieApp;
+package com.example.MovieApp.model.primary;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+
 @Getter
 @Setter
 @NoArgsConstructor

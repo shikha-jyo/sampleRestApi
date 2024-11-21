@@ -1,6 +1,10 @@
-package com.example.MovieApp;
+package com.example.MovieApp.controller;
 
+import com.example.MovieApp.ResourceNotFoundException;
+import com.example.MovieApp.model.primary.Show;
+import com.example.MovieApp.repository.primary.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
@@ -16,9 +20,10 @@ public class ShowController {
     ShowRepository showRepository;
 
     @PostMapping("/addShow")
-    public Show createOrUpdateShow( @RequestBody Show show) {
+    public ResponseEntity<Show> createOrUpdateShow(@RequestBody Show show) {
         Show showReturned = showRepository.save(show);
-        return showReturned;
+        return ResponseEntity.status(HttpStatus.CREATED).body(showReturned);
+
     }
     @PutMapping("/updateShow/{id}")
     public ResponseEntity<Show> updateShow(@PathVariable(value = "id") Long showId,

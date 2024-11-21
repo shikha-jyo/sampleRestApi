@@ -1,5 +1,12 @@
 package com.example.MovieApp;
 
+import com.example.MovieApp.Dto.ShowDto;
+import com.example.MovieApp.model.primary.Movie;
+import com.example.MovieApp.model.primary.Show;
+import com.example.MovieApp.model.primary.Theatre;
+import com.example.MovieApp.repository.primary.MovieRepository;
+import com.example.MovieApp.repository.primary.ShowRepository;
+import com.example.MovieApp.repository.primary.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

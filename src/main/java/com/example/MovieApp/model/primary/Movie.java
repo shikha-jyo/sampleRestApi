@@ -1,4 +1,4 @@
-package com.example.MovieApp;
+package com.example.MovieApp.model.primary;
 
 import jakarta.persistence.*;
 import lombok.*;
